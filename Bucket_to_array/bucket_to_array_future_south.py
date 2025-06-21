@@ -30,9 +30,8 @@ chosen_bands = ['BUI', 'DC', 'DMC', 'FFMC', 'FWI', 'ISI']
 
 # Climate - DO LAND COVER G1, PR AND RADIATION SEPARATELY
 #band_names = ['hurs', 'huss', 'pr', 'rlds', 'rsds', 'sfcWind', 'tas', 'tasmax', 'tasmin'] # raw CMIP6
-#chosen_bands = ['hurs', 'sfcWind', 'tas', 'tasmax', 'tasmin'] # CMIP6
+#chosen_bands = ['hurs', 'rlds', 'rsds', 'sfcWind', 'tas', 'tasmax', 'tasmin'] # CMIP6
 #chosen_bands = ['pr'] # treat precipitation separately
-#chosen_bands = ['rlds', 'rsds'] # treat radiation separately
 
 # Google Cloud Storage bucket path template - ensure Trevor given permission
 # CHANGE MODEL AS REQUIRED
@@ -63,10 +62,6 @@ def create_image(folder, scenario, year, month, selected_bands):
     # For pr to pr_sum ONLY
     #seconds_in_month = last_day * 24 * 60 * 60
     #image = image.multiply(seconds_in_month)
-
-    # For radiation ONLY - to convert to W/m2
-    #seconds_in_month = last_day * 24 * 60 * 60
-    #image = image.divide(seconds_in_month)
 
     # Fill missing data with -9999, clip and update the mask to another image
     image = image.unmask(-9999, sameFootprint=True).clip(south_siberia).updateMask(other)
