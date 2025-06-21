@@ -12,10 +12,8 @@ Order for running scripts:
     *  It is advised that the data be bias corrected (run the next step as to why) before being uploaded to the bucket.
     *  Finally convert the GeoTIFFs to COGs. It is then advised to copy the COGs to a Google Cloud Storage bucket.
 2.  Conduct a `Fire_weather_data_comparison` to understand the biases between the NASA-downscaled fire weather data and those from CEMS.
-    *  First, you need to `Process` the data to csv format - also in this Notebook you can create a grid to iterate over the whole study region, which will be useful later.
-        i.  The `CEMS_processing.py` file is a suitable alternative to the Jupyter Notebook and can be adapted for processing the NASA-downscaled data.
-    *  Then, using the `Stats_csv.py` and `Make_plot.py` files you can analyse the data.
-        ii.  The comparison Notebook is also an option, however this requires careful management of the csv files to avoid crashing.
+    *  First, you need to `Process` the data to csv format - also in this Notebook you can create a grid to iterate over the whole study region, which will be useful later. The `CEMS_processing.py` file is a suitable alternative to the Jupyter Notebook and can be adapted for processing the NASA-downscaled data.
+    *  Then, using the `Stats_csv.py` and `Make_plot.py` files you can analyse the data. The comparison Notebook is also an option, however this requires careful management of the csv files to avoid crashing.
     *  This code can be adapted to compare the ERA5-Land and NASA-downscaled climate data.
     *  Other than making the iterative grid, this step is optional.
 3.  `Preprocess` the images for the `static_input` (i.e. topographic, land cover, lat-lon and month variables) and the historic (`hist_batch`) images. It is useful to have these stored in the Google Cloud Storage bucket.
