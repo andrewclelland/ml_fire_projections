@@ -1,8 +1,6 @@
 """
 Code to split a long array up into smaller sections for testing months.
 
-Code separated into sections - add/remove doc strings for each section.
-
 Edit as necessary.
 """
 import numpy as np
@@ -37,7 +35,6 @@ for band in top_band_names:
         # Print a confirmation message
         print(f"Month {i+1} for {band} saved.")
 
-"""
 fwi_band_names = ['BUI', 'DC', 'DMC', 'FFMC', 'FWI', 'ISI']
 for band in fwi_band_names:
     # Load the array for each band
@@ -53,9 +50,7 @@ for band in fwi_band_names:
         
         # Print a confirmation message
         print(f"Month {i+1} for {band} saved.")
-"""
 
-"""
 clim_band_names = ['rh', 'pr_sum', 'rlds', 'rsds', 'sfcWind', 't2m', 'mx2t', 'mn2t']
 for band in clim_band_names:
     # Load the array for each band
@@ -71,4 +66,3 @@ for band in clim_band_names:
         
         # Print a confirmation message
         print(f"Month {i+1} for {band} saved.")
-"""
