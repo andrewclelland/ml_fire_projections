@@ -3,7 +3,7 @@ Repository for making machine learning wildfire monthly projections in the Arcti
 
 Preliminary:
 *  Ensure you have a Google Earth Engine account linked to a project
-*  It is recommended to have access to a Google Cloud Storage bucket
+*  It is strongly recommended to have access to a Google Cloud Storage bucket
 *  Use of a supercomputer or HPC is encouraged for running the models
 
 Order for running scripts:
