@@ -28,7 +28,7 @@ final_north = ee.FeatureCollection('users/andyc97/model_shapefiles/final_north')
 band_names = ['BUI', 'DC', 'DMC', 'FFMC', 'FWI', 'FWI_N15', 'FWI_N30', 'FWI_N45', 'FWI_NP95', 'FWI_Nmid', 'ISI'] # raw FWI
 chosen_bands = ['BUI', 'DC', 'DMC', 'FFMC', 'FWI', 'ISI']
 
-# Climate - DO LAND COVER G1, PR AND RADIATION SEPARATELY
+# Climate - DO LAND COVER G1, AND PR SEPARATELY
 #band_names = ['hurs', 'huss', 'pr', 'rlds', 'rsds', 'sfcWind', 'tas', 'tasmax', 'tasmin'] # raw CMIP6
 #chosen_bands = ['hurs', 'rlds', 'rsds', 'sfcWind', 'tas', 'tasmax', 'tasmin'] # CMIP6
 #chosen_bands = ['pr'] # treat precipitation separately
