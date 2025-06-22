@@ -1,7 +1,7 @@
 # ml_fire_projections
 Repository for making machine learning wildfire monthly projections in the Arctic-boreal zone under different SSP scenarios from 2025-2100. Two models are used - one specific for South Siberia - to capture the different fire regime, the other covering the remainder of the region. 21 input variables are considered, containing topographic, land cover, climate and fire danger indices.
 
-The analysis code is stored in a separate repository: linked here.
+The analysis code is stored in a separate repository: [linked here](https://github.com/andrewclelland/analyse_ml_fire_projections).
 
 Preliminary:
 *  Ensure you have a Google Earth Engine account linked to a project
