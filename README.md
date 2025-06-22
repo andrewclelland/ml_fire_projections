@@ -1,6 +1,8 @@
 # ml_fire_projections
 Repository for making machine learning wildfire monthly projections in the Arctic-boreal zone under different SSP scenarios from 2025-2100. Two models are used - one specific for South Siberia - to capture the different fire regime, the other covering the remainder of the region. 21 input variables are considered, containing topographic, land cover, climate and fire danger indices.
 
+The analysis code is stored in a separate repository: linked here.
+
 Preliminary:
 *  Ensure you have a Google Earth Engine account linked to a project
 *  It is strongly recommended to have access to a Google Cloud Storage bucket
@@ -23,7 +25,7 @@ Order for running scripts:
 5.  Once the data are processed in the correct form, `run` the models.
     *  First conduct a cross-validation (`crossval`) to find the optimal combination of model parameters for each model.
     *  Then validate and test the models in the `historic` period. Validation years are 2008, 2015 and 2020; testing years are 2021-2023, although the model can be tested on 2001-2023 if desired.
-    *  Run the model for the `future` period across all scenarios. The output will be saved locally as netCDF files which can then be analysed...
+    *  Run the model for the `future` period across all scenarios. The output will be saved locally as netCDF files which can then be analysed (see next repository).
     *  Part of the analysis includes SHAP plots, which can be run using the `model_xgb_region_shap.py` scripts.
   
 The `General_processing_operations` folder contains scripts relating to all aspects of processing files, especially NumPy arrays.
