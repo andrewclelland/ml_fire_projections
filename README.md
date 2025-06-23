@@ -19,7 +19,9 @@ Order for running scripts:
     *  This code can be adapted to compare the ERA5-Land and NASA-downscaled climate data.
     *  Other than making the iterative grid, this step is optional.
 3.  `Preprocess` the images for the `static_input` (i.e. topographic, land cover, lat-lon and month variables) and the historic (`hist_batch`) images. It is useful to have these stored in the Google Cloud Storage bucket.
-    *  The `preprocess_future_batch.py` step is optional and may not be worth your time - the values can be extracted automatically using adjustments at the next step...
+    *  The `preprocess_future_batch.py` step is optional and may not be worth your time - the values can be extracted automatically using adjustments at the next main step...
+    *  You can `remap_land_cover_values` if necessary to reduce the number of land cover variables under consideration by the models.
+    *  The southern Siberia region can be created from `dissolve_soja_ecoregions` and `create_south_siberia_region` in the Google Earth Engine Code Editor.
 4.  Store the COG data locally for both the historic and future periods (all scenarios) as NumPy arrays by running `Bucket_to_array` files.
     *  Take extra care with the precipitation and radiation data - the CMIP6 precipitation data has to be converted to metres to match the ERA5-Land training data, whereas the ERA5-Land shortwave and longwave radiation values have to be converted to W/m2 to be consistent with the CMIP6 data.
 5.  Once the data are processed in the correct form, `run` the models.
