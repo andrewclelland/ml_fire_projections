@@ -1,6 +1,6 @@
-"""
-JavaScript script to be used in Google Earth Engine's Code Editor for making broader land cover classes for the machine learning model input based on the TEM land cover map.
-"""
+/**
+* JavaScript script to be used in Google Earth Engine's Code Editor for making broader land cover classes for the machine learning model input based on the TEM land cover map.
+*/
 // Load image and shapefile
 var image = ee.Image('users/andyc97/model_shapefiles/TEM_LandCover_Map_V3');
 var shpfile = ee.FeatureCollection('users/andyc97/model_shapefiles/final_shapefile');
