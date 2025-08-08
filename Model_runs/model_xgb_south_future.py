@@ -21,7 +21,7 @@ warnings.filterwarnings("ignore")
 start_time = time.time()
 
 # Load numpy training arrays from .npy files
-top_band_names = ['elevation', 'slope', 'aspect', 'land_g1', 'month', 'latitude', 'longitude_sine'] # Exclude fire
+top_band_names = ['elevation', 'slope', 'aspect', 'land_g1', 'month', 'latitude', 'longitude_sine']
 fwi_band_names = ['BUI', 'DC', 'DMC', 'FFMC', 'FWI', 'ISI']
 clim_band_names = ['rh', 'pr_sum', 'rlds', 'rsds', 'sfcWind', 't2m', 'mx2t', 'mn2t']
 
@@ -61,6 +61,7 @@ y_train = y_train.astype(int)
 burned_indices = np.where(y_train == 1)[0]
 unburned_indices = np.where(y_train == 0)[0]
 
+# Use all available indices
 burned_sample_indices = np.random.choice(burned_indices, 45788, replace=False)
 unburned_sample_indices = np.random.choice(unburned_indices, 42575572, replace=False)
 
@@ -140,7 +141,7 @@ variable_names = ['BUI', 'DC', 'DMC', 'FFMC', 'FWI', 'ISI', 'hurs', 'pr', 'rlds'
 for model, model_long in zip(models, models_long):
     for folder, scenario in zip(folders, scenarios):
         # Create a single netCDF4 Dataset with multiple time steps
-        fn = f'/gws/nopw/j04/bas_climate/users/clelland/model/output_{model}_south/output_{model}_south_{scenario}_2025_2100_v2_no_fwi.nc' # <-- Edit as necessary
+        fn = f'/gws/nopw/j04/bas_climate/users/clelland/model/output_{model}_south/output_{model}_south_{scenario}_2025_2100_v2.nc' # <-- Edit as necessary
         ds = nc.Dataset(fn, 'w', format='NETCDF4')
         
         # Add global metadata
@@ -298,7 +299,7 @@ for model, model_long in zip(models, models_long):
                     plt.ylabel('Latitude')
                     
                     # Save the plot
-                    plt.savefig(f'/home/users/clelland/Model/Final_plots/South v2 no FWI/{model_long}/{folder}/preds_{model}_south_{scenario}_{year}_{month:02d}.png', dpi=300, bbox_inches='tight', transparent=True) # <-- Edit as necessary
+                    plt.savefig(f'/home/users/clelland/Model/Final_plots/South v2/{model_long}/{folder}/preds_{model}_south_{scenario}_{year}_{month:02d}.png', dpi=300, bbox_inches='tight', transparent=True) # <-- Edit as necessary
                     
         # Close the netCDF dataset
         ds.close()
