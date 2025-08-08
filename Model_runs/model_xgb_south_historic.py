@@ -26,7 +26,7 @@ warnings.filterwarnings("ignore")
 start_time = time.time()
 
 # Load numpy training arrays from .npy files
-top_band_names = ['elevation', 'slope', 'aspect', 'land_g1', 'month', 'latitude', 'longitude_sine'] # Exclude fire
+top_band_names = ['elevation', 'slope', 'aspect', 'land_g1', 'month', 'latitude', 'longitude_sine']
 fwi_band_names = ['BUI', 'DC', 'DMC', 'FFMC', 'FWI', 'ISI']
 clim_band_names = ['rh', 'pr_sum', 'rlds', 'rsds', 'sfcWind', 't2m', 'mx2t', 'mn2t']
 
@@ -71,6 +71,7 @@ y_train = y_train.astype(int)
 burned_indices = np.where(y_train == 1)[0]
 unburned_indices = np.where(y_train == 0)[0]
 
+# Use all available indices
 burned_sample_indices = np.random.choice(burned_indices, 45788, replace=False)
 unburned_sample_indices = np.random.choice(unburned_indices, 42575572, replace=False)
 
@@ -152,8 +153,8 @@ for year in years:
         X_test = da.concatenate(loaded_test_arrays, axis=1)
         print('\nX_test shape:', X_test.shape)
         
-        # Load and ravel the testing fire array - firecci or mcd as required - Edit as necessary
-        test_firecci_array = load_npy_file(f'/gws/nopw/j04/bas_climate/users/clelland/model/testing_south/testing_south_{year}_{month}_mcd_array.npy')
+        # Load and ravel the testing fire array - Edit as necessary
+        test_firecci_array = load_npy_file(f'/gws/nopw/j04/bas_climate/users/clelland/model/testing_south/testing_south_{year}_{month}_mcd_array.npy') # firecci for 2001-2020, mcd for 2021-2023
         y_test = da.from_delayed(test_firecci_array, shape=(177589,), dtype=np.float32).ravel()
         print('y_test shape:', y_test.shape)
         
@@ -227,7 +228,7 @@ for year in years:
             lon_single = np.load('/home/users/clelland/Model/lon_south_single.npy')
             
             # Add actual data
-            actual_fire = np.load(f'/gws/nopw/j04/bas_climate/users/clelland/model/testing_south/testing_south_{year}_{month}_mcd_array.npy') # <-- Edit as necessary
+            actual_fire = np.load(f'/gws/nopw/j04/bas_climate/users/clelland/model/testing_south/testing_south_{year}_{month}_mcd_array.npy') # <-- Edit as necessary - firecci for 2001-2020, mcd for 2021-2023
             
             # Create a dictionary with the extracted data
             final_dict = {
