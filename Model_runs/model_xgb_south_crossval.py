@@ -17,7 +17,7 @@ warnings.filterwarnings("ignore")
 start_time = time.time()
 
 # Load numpy training arrays from .npy files
-top_band_names = ['elevation', 'slope', 'aspect', 'land_g1', 'month', 'latitude', 'longitude_sine'] # Exclude fire
+top_band_names = ['elevation', 'slope', 'aspect', 'land_g1', 'month', 'latitude', 'longitude_sine']
 fwi_band_names = ['BUI', 'DC', 'DMC', 'FFMC', 'FWI', 'ISI']
 clim_band_names = ['rh', 'pr_sum', 'rlds', 'rsds', 'sfcWind', 't2m', 'mx2t', 'mn2t']
 
@@ -57,7 +57,7 @@ y_train = y_train.astype(int)
 burned_indices = np.where(y_train == 1)[0]
 unburned_indices = np.where(y_train == 0)[0]
 
-# Randomly select 10000 indices for burned and unburned pixels
+# Use all available pixels
 burned_sample_indices = np.random.choice(burned_indices, 45788, replace=False)
 unburned_sample_indices = np.random.choice(unburned_indices, 42575572, replace=False)
 
